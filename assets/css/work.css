@@ -1,0 +1,221 @@
+/* ================================
+   Work Page - Haakad Architects
+   ================================ */
+
+/* Page Hero */
+.page-hero {
+  height: 45vh;
+  background: #111111;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 3rem;
+}
+
+.page-hero-content {
+  padding: 0 5%;
+}
+
+.page-hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+}
+
+.page-hero-content p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* Filter Tabs */
+.work-filter {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-menu);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.filter-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  color: #111111;
+}
+
+.filter-btn.active::after,
+.filter-btn:hover::after {
+  width: 100%;
+}
+
+/* Projects Grid */
+.work-grid {
+  padding: 4rem 0 6rem;
+}
+
+/* Project Card */
+.project-card {
+  cursor: pointer;
+}
+
+.project-img {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: #f0f0f0;
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover .project-img img {
+  transform: scale(1.05);
+}
+
+/* Overlay */
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(7, 142, 171, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-link {
+  width: 50px;
+  height: 50px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-link {
+  transform: scale(1);
+}
+
+/* Project Info */
+.project-info {
+  padding: 1.25rem 0 0;
+}
+
+.project-category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.project-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #111111;
+  margin: 0.4rem 0 0.3rem;
+}
+
+.project-location {
+  font-size: 0.85rem;
+  color: #aaaaaa;
+  margin: 0;
+}
+
+.project-location .bi {
+  font-size: 0.75rem;
+  margin-right: 3px;
+}
+
+/* Hidden filtered items */
+.project-item.hidden {
+  display: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .page-hero {
+    height: 35vh;
+  }
+
+  .page-hero-content h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Load More */
+.load-more-wrap {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+#load-more-btn {
+  background: none;
+  border: 1.5px solid #111111;
+  font-family: var(--font-menu);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #111111;
+  padding: 0.9rem 3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#load-more-btn:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+#load-more-btn.hidden {
+  display: none;
+}
