@@ -1,0 +1,150 @@
+/* ===============================
+   Awards Section
+================================ */
+.awards-section {
+  padding: 100px 0;
+  border-top: 1px solid #eee;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.award-item {
+  display: flex;
+  gap: 30px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.award-year {
+  min-width: 80px;
+  font-weight: 500;
+  color: #888;
+}
+
+.award-text {
+  margin: 0;
+  font-size: 16px;
+  color: #222;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .award-item {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .award-year {
+    font-size: 14px;
+  }
+}
+
+/* ===============================
+   Featured Article
+================================ */
+.featured-article {
+  padding: 100px 0;
+  border-top: 1px solid #eee;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+/* Preview Card */
+.article-preview {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.article-preview img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+.article-preview:hover img {
+  transform: scale(1.05);
+}
+
+/* Overlay */
+.article-preview .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.article-preview .overlay p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.article-preview .overlay h4 {
+  margin: 5px 0;
+  font-size: 22px;
+}
+
+.article-preview .overlay span {
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* Modal fix */
+.modal-body iframe {
+  min-height: 70vh;
+}
+
+/* Publication Image Wrapper */
+.publication-minimal img {
+  width: 100%;
+  height: 300px; /* 👉 control height here */
+  object-fit: contain; /* 👉 ensures full image visible */
+  background: #f5f5f5; /* 👉 adds clean background for empty space */
+  padding: 10px; /* optional: gives breathing space */
+}
+
+.publication-link {
+  font-size: 18px;
+  color: #555;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+.publication-link .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.publication-minimal:hover .publication-link {
+  color: #000;
+}
+
+.publication-minimal:hover .arrow {
+  transform: translateX(6px); /* 👉 smooth move */
+}
+
+.publication-image:hover img {
+  transform: scale(1.05);
+}
