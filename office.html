@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Office - Haakad Architects</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600&family=Prompt:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/parallax.css" />
+    <link rel="stylesheet" href="assets/css/work.css" />
+    <link rel="stylesheet" href="assets/css/office.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header id="navbar"></header>
+
+    <main>
+      <!-- HERO -->
+      <div class="parallax parallax-2">
+        <div class="parallax-content">
+          <h2>Our Office</h2>
+          <p>Crafting spaces, earning recognition, sharing ideas.</p>
+        </div>
+      </div>
+
+      <!-- Portfolio Intro -->
+      <section class="container portfolio-intro">
+        <div>
+          <div class="row align-items-center px-3">
+            <!-- Left Content -->
+            <div class="col-md-7">
+              <span class="portfolio-label">Principal Architect</span>
+
+              <h2 class="portfolio-title">Harish</h2>
+
+              <p class="portfolio-desc">
+                To be an architect was his childhood aspiration. Ar. Harish
+                completed his architecture degree in ACE, Hosur and established
+                HaakaD.
+              </p>
+
+              <p class="portfolio-desc">
+                His passion for design led him to work across Chennai,
+                Hyderabad, and Bangalore, shaping a distinct design language
+                rooted in both global ideas and local context.
+              </p>
+
+              <p class="portfolio-desc">
+                An active member of IIA, he collaborates with designers and
+                artisans to deliver thoughtful, detailed architectural
+                experiences.
+              </p>
+
+              <!-- Social Icons -->
+              <div class="portfolio-social mt-4">
+                <a
+                  href="https://www.instagram.com/haakad_architects"
+                  target="_blank"
+                >
+                  <i class="bi bi-instagram"></i>
+                </a>
+                <a
+                  href="https://www.facebook.com/haakadarchitects.inc?mibextid=LQQJ4d"
+                  target="_blank"
+                >
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a
+                  href="https://www.youtube.com/@haakadarchitects"
+                  target="_blank"
+                >
+                  <i class="bi bi-youtube"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Image -->
+            <div class="col-md-5">
+              <div class="portfolio-image">
+                <img
+                  src="/hakaad-architects/assets/images/portfolio.jpg"
+                  alt="Harish - Principal Architect"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="achievements-section mb-5">
+        <div class="container">
+          <div class="row g-5">
+            <!-- Awards -->
+            <div class="col-md-6">
+              <div class="achievement-block">
+                <h3 class="section-title">Awards</h3>
+                <div class="publication-minimal">
+                  <div class="publication-image">
+                    <img
+                      src="assets/images/Award.jpg"
+                      alt="Award"
+                      class="img-fluid mb-4"
+                    />
+                  </div>
+                </div>
+
+                <p>
+                  We have been awarded in two categories by National
+                  Architecture and Interior Design Excellence Awards
+                </p>
+
+                <p>
+                  Awarded As Creative and Promising Architecture & Interior
+                  Design Firm in Tamilnadu 2023
+                </p>
+
+                <p>
+                  Awarded As Rising & Trendsetter Architect & Designer in India,
+                  2023
+                </p>
+              </div>
+            </div>
+
+            <!-- Publications -->
+            <div class="col-md-6">
+              <div class="achievement-block">
+                <h3 class="section-title">Publications</h3>
+
+                <div class="publication-minimal" id="openArticle">
+                  <div class="publication-image">
+                    <img
+                      src="assets/images/article-previw.png"
+                      alt="Featured Article"
+                    />
+                  </div>
+
+                  <div class="publication-content">
+                    <h3 class="publication-title py-2">The Architects Diary</h3>
+                    <span class="publication-link cursor-pointer">
+                      View Article <span class="arrow">→</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal -->
+      <div class="modal fade" id="articleModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Project Article</h5>
+              <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body p-0">
+              <iframe
+                id="articleFrame"
+                width="100%"
+                height="600px"
+                style="border: none"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/office.js"></script>
+  </body>
+</html>
