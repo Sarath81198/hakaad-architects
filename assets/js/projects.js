@@ -1,4 +1,7 @@
 const projects = [
+  // ===============================
+  // Architecture
+  // ===============================
   {
     id: 1,
     category: "architecture",
@@ -13,92 +16,104 @@ const projects = [
   },
   {
     id: 3,
-    category: "interior",
-    title: "Minimalist Living Space",
-    image: "/hakaad-architects/assets/images/Architecture/Architect3.jpg",
-  },
-  {
-    id: 4,
     category: "architecture",
     title: "The Garden Residence",
     image: "/hakaad-architects/assets/images/Architecture/Architect4.jpg",
   },
   {
-    id: 5,
+    id: 4,
     category: "architecture",
     title: "Courtyard Villa",
     image: "/hakaad-architects/assets/images/Architecture/Architect5.jpg",
   },
   {
-    id: 6,
-    category: "interior",
-    title: "Minimalist Living Space",
-    image: "/hakaad-architects/assets/images/Architecture/Architect6.jpg",
-  },
-  {
-    id: 7,
+    id: 5,
     category: "architecture",
     title: "The Garden Residence",
     image: "/hakaad-architects/assets/images/Architecture/Architect7.jpg",
   },
   {
-    id: 8,
+    id: 6,
     category: "architecture",
     title: "Courtyard Villa",
     image: "/hakaad-architects/assets/images/Architecture/Architect8.jpg",
   },
+
+  // ===============================
+  // Interior
+  // ===============================
   {
-    id: 9,
+    id: 101,
+    category: "interior",
+    title: "Minimalist Living Space",
+    image: "/hakaad-architects/assets/images/Architecture/Architect3.jpg",
+  },
+  {
+    id: 102,
+    category: "interior",
+    title: "Minimalist Living Space",
+    image: "/hakaad-architects/assets/images/Architecture/Architect6.jpg",
+  },
+  {
+    id: 103,
     category: "interior",
     title: "Modern Interior 9",
     image: "/hakaad-architects/assets/images/Interior/Interior9.jpg",
   },
   {
-    id: 11,
+    id: 104,
     category: "interior",
     title: "Modern Interior 11",
     image: "/hakaad-architects/assets/images/Interior/Interior11.jpg",
   },
   {
-    id: 51,
+    id: 105,
     category: "interior",
     title: "Modern Interior 51",
     image: "/hakaad-architects/assets/images/Interior/Interior51.jpg",
   },
   {
-    id: 52,
+    id: 106,
     category: "interior",
     title: "Modern Interior 52",
     image: "/hakaad-architects/assets/images/Interior/Interior52.jpg",
   },
   {
-    id: 53,
+    id: 107,
     category: "interior",
     title: "Modern Interior 53",
     image: "/hakaad-architects/assets/images/Interior/Interior53.jpg",
   },
   {
-    id: 54,
+    id: 108,
     category: "interior",
     title: "Modern Interior 54",
     image: "/hakaad-architects/assets/images/Interior/Interior54.jpg",
   },
   {
-    id: 55,
+    id: 109,
     category: "interior",
     title: "Modern Interior 55",
     image: "/hakaad-architects/assets/images/Interior/Interior55.jpg",
   },
+
+  // ===============================
+  // Commercial
+  // ===============================
   {
-    id: 101,
+    id: 201,
     category: "commercial",
     title: "Commercial Project 1",
     image: "/hakaad-architects/assets/images/Commercial/Commercial1.jpg",
   },
+
+  // ===============================
+  // Completed
+  // ===============================
   ...Array.from({ length: 39 }, (_, i) => ({
-    id: 201 + i,
+    id: 301 + i,
     category: "completed",
     title: `Completed Project ${i + 1}`,
     image: `/hakaad-architects/assets/images/Completed/Completed${i + 1}.jpg`,
-  }))
+  })),
 ];

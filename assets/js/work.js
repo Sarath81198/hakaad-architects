@@ -30,41 +30,34 @@ const grid = document.getElementById("projects-grid");
 // Render Projects
 // ===============================
 function renderProjects() {
+  const grid = document.getElementById("projects-grid");
   grid.innerHTML = "";
 
-  const filtered =
-    currentFilter === "all"
-      ? projects
-      : projects.filter((p) => p.category === currentFilter);
+  const filtered = currentFilter === "all"
+    ? projects
+    : projects.filter((p) => p.category === currentFilter);
 
-  const visibleProjects = filtered.slice(0, visibleCount);
-
-  visibleProjects.forEach((project) => {
+  filtered.forEach((project) => {
     const col = document.createElement("div");
     col.className = "col-lg-4 col-md-6";
-
     col.innerHTML = `
       <div class="project-card">
         <div class="project-img">
           <img src="${project.image}" alt="${project.title}" loading="lazy" />
           <div class="project-overlay">
-            <a href="project-detail.html?id=${project.id}">
+            <a href="project-detail.html?id=${project.id}" class="project-link">
               <i class="bi bi-arrow-up-right"></i>
             </a>
           </div>
         </div>
         <div class="project-info">
-          <span>${project.category}</span>
-          <h3>${project.title}</h3>
+          <span class="project-category">${project.category}</span>
+          <h3 class="project-title">${project.title}</h3>
         </div>
       </div>
     `;
-
     grid.appendChild(col);
   });
-
-  const btn = document.getElementById("load-more-btn");
-  btn.style.display = visibleCount >= filtered.length ? "none" : "block";
 }
 
 // ===============================
@@ -73,14 +66,6 @@ function renderProjects() {
 function applyFilter(filter) {
   currentFilter = filter;
   visibleCount = ITEMS_PER_PAGE;
-  renderProjects();
-}
-
-// ===============================
-// Load More
-// ===============================
-function loadMore() {
-  visibleCount += ITEMS_PER_PAGE;
   renderProjects();
 }
 
@@ -106,8 +91,15 @@ document.addEventListener("click", (e) => {
 // Init
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
-  loadComponent("navbar", "components/navbar.html");
-  loadComponent("footer", "components/footer.html");
-
-  renderProjects(); // default = architecture
+  Promise.all([
+    loadComponent("navbar", "components/navbar.html"),
+    loadComponent("footer", "components/footer.html"),
+  ]).then(() => {
+    const navbar = document.querySelector(".navbar");
+    if (navbar) {
+      navbar.classList.add("visible");
+      // navbar.classList.add("scrolled"); // force white
+    }
+    renderProjects();
+  });
 });
