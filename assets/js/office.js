@@ -1,22 +1,23 @@
 // ===============================
-// Open Article in Modal (NO REDIRECT)
+// Open Article in Modal (MULTIPLE TRIGGERS)
 // ===============================
-const articleTrigger = document.getElementById("openArticle");
+const articleTriggers = document.querySelectorAll(".openArticle");
 const modalEl = document.getElementById("articleModal");
 const iframe = document.getElementById("articleFrame");
 
-if (articleTrigger) {
-  articleTrigger.addEventListener("click", function (e) {
-    e.preventDefault();       // 🚫 stop navigation
-    e.stopPropagation();      // 🚫 extra safety
+if (articleTriggers.length > 0) {
+  articleTriggers.forEach((el) => {
+    el.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
 
-    const modal = new bootstrap.Modal(modalEl);
+      const modal = new bootstrap.Modal(modalEl);
 
-    // Set iframe URL
-    iframe.src =
-      "https://thearchitectsdiary.com/the-interior-of-this-house-in-chennai-is-one-of-a-kind-haakad-architects-designers/";
+      iframe.src =
+        "https://thearchitectsdiary.com/the-interior-of-this-house-in-chennai-is-one-of-a-kind-haakad-architects-designers/";
 
-    modal.show();
+      modal.show();
+    });
   });
 }
 
@@ -25,6 +26,6 @@ if (articleTrigger) {
 // ===============================
 if (modalEl) {
   modalEl.addEventListener("hidden.bs.modal", function () {
-    iframe.src = ""; // stop loading in background
+    iframe.src = "";
   });
 }

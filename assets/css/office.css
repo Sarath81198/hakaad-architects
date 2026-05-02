@@ -1,4 +1,33 @@
 /* ===============================
+   Common Section Styles
+================================ */
+.section-title {
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Underline */
+.section-title h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--primary);
+}
+
+/* ===============================
    Awards Section
 ================================ */
 .awards-section {
@@ -6,56 +35,96 @@
   border-top: 1px solid #eee;
 }
 
-.section-title {
-  font-size: 28px;
-  font-weight: 500;
+/* Award Card */
+.award-card {
+  text-align: center;
 }
 
-.award-item {
-  display: flex;
-  gap: 30px;
-  padding: 20px 0;
-  border-bottom: 1px solid #eee;
+.award-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 6px;
+  transition: transform 0.4s ease;
 }
 
-.award-year {
-  min-width: 80px;
-  font-weight: 500;
-  color: #888;
+.award-card:hover img {
+  transform: scale(1.05);
 }
 
 .award-text {
-  margin: 0;
-  font-size: 16px;
-  color: #222;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .award-item {
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .award-year {
-    font-size: 14px;
-  }
+  margin-top: 12px;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
 }
 
 /* ===============================
-   Featured Article
+   Publications Section
 ================================ */
 .featured-article {
   padding: 100px 0;
   border-top: 1px solid #eee;
 }
 
-.section-title {
-  font-size: 28px;
+/* Publication Layout */
+.publication-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.publication-image:hover img {
+  transform: scale(1.05);
+}
+
+.publication-content {
+  padding: 20px;
+}
+
+.publication-title {
+  font-size: 22px;
   font-weight: 500;
 }
 
-/* Preview Card */
+.publication-desc {
+  font-size: 14px;
+  color: #666;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+/* Link + Arrow */
+.publication-link {
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+.publication-link:hover {
+  color: #000;
+}
+
+/* Arrow Animation */
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.publication-link:hover .arrow {
+  transform: translateX(6px);
+}
+
+/* ===============================
+   Article Preview (Optional Old Style)
+================================ */
 .article-preview {
   position: relative;
   cursor: pointer;
@@ -76,23 +145,19 @@
   transform: scale(1.05);
 }
 
-/* Overlay */
 .article-preview .overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
   color: white;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
 }
 
 .article-preview .overlay p {
-  margin: 0;
   font-size: 14px;
   opacity: 0.8;
 }
@@ -107,44 +172,27 @@
   letter-spacing: 1px;
 }
 
-/* Modal fix */
+/* ===============================
+   Modal Fix
+================================ */
 .modal-body iframe {
   min-height: 70vh;
 }
 
-/* Publication Image Wrapper */
-.publication-minimal img {
-  width: 100%;
-  height: 300px; /* 👉 control height here */
-  object-fit: contain; /* 👉 ensures full image visible */
-  background: #f5f5f5; /* 👉 adds clean background for empty space */
-  padding: 10px; /* optional: gives breathing space */
-}
+/* ===============================
+   Mobile Responsive
+================================ */
+@media (max-width: 768px) {
+  .awards-section,
+  .featured-article {
+    padding: 60px 0;
+  }
 
-.publication-link {
-  font-size: 18px;
-  color: #555;
-  letter-spacing: 1px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: color 0.3s ease;
-}
+  .publication-image img {
+    height: 220px;
+  }
 
-.publication-link .arrow {
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-/* Hover effect */
-.publication-minimal:hover .publication-link {
-  color: #000;
-}
-
-.publication-minimal:hover .arrow {
-  transform: translateX(6px); /* 👉 smooth move */
-}
-
-.publication-image:hover img {
-  transform: scale(1.05);
+  .publication-content {
+    padding: 10px 0;
+  }
 }
