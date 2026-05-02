@@ -111,3 +111,69 @@
     display: none;
   }
 }
+
+/* ===============================
+   White Navbar Variant (Work Page)
+================================ */
+
+/* Default white navbar */
+body.nav-white .navbar {
+  background: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  padding: 10px 0;
+}
+
+/* Links → dark */
+body.nav-white .navbar-nav .nav-link {
+  color: #1a1a1a !important;
+}
+
+/* Underline color */
+body.nav-white .navbar-nav .nav-link::after {
+  background: var(--primary);
+}
+
+/* Toggler */
+body.nav-white .navbar-toggler {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+body.nav-white .navbar-toggler-icon {
+  filter: invert(0);
+}
+
+/* ===============================
+   Fix content under fixed navbar
+================================ */
+body.nav-white main {
+  padding-top: 70px; /* adjust based on navbar height */
+}
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+/* ===============================
+   Work Page Mobile Toggle Fix
+================================ */
+@media (max-width: 991px) {
+  body.nav-white .navbar {
+    background: #ffffff !important;
+  }
+
+  /* 🔥 Override dark overlay when menu opens */
+  body.nav-white .navbar:has(.navbar-collapse.show) {
+    background: #ffffff !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Optional: make dropdown area clean */
+  body.nav-white .navbar-collapse {
+    background: #ffffff;
+  }
+
+  /* Links already dark, but ensure */
+  body.nav-white .navbar-nav .nav-link {
+    color: #1a1a1a !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+}

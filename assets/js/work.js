@@ -33,17 +33,14 @@ function renderProjects() {
   const grid = document.getElementById("projects-grid");
   grid.innerHTML = "";
 
-  const filtered = currentFilter === "all"
-    ? projects
-    : projects.filter((p) => p.category === currentFilter);
-
-  filtered.forEach((project) => {
+  projects.forEach((project) => {
     const col = document.createElement("div");
-    col.className = "col-lg-4 col-md-6";
+    col.className = `col-lg-4 col-md-6 project-item ${project.category}`;
+
     col.innerHTML = `
       <div class="project-card">
         <div class="project-img">
-          <img src="${project.image}" alt="${project.title}" loading="lazy" />
+          <img src="${project.image}" alt="${project.title}" />
           <div class="project-overlay">
             <a href="project-detail.html?id=${project.id}" class="project-link">
               <i class="bi bi-arrow-up-right"></i>
@@ -64,9 +61,15 @@ function renderProjects() {
 // Filter
 // ===============================
 function applyFilter(filter) {
-  currentFilter = filter;
-  visibleCount = ITEMS_PER_PAGE;
-  renderProjects();
+  const items = document.querySelectorAll(".project-item");
+
+  items.forEach((item) => {
+    if (filter === "all" || item.classList.contains(filter)) {
+      item.classList.remove("hide");
+    } else {
+      item.classList.add("hide");
+    }
+  });
 }
 
 // ===============================
