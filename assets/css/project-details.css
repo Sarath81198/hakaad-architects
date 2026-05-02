@@ -118,6 +118,10 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
+.detail-nav-item.empty {
+ display: none !important;
+}
+
 .detail-nav-item:hover {
   max-width: 320px;
   padding: 10px 20px;
