@@ -128,25 +128,29 @@ function renderProject() {
     ${showNav ? `
       <div class="detail-nav">
 
-        ${prevProject ? `
-          <div class="detail-nav-item prev" onclick="window.location.href='project-detail.html?id=${prevProject.id}'">
-            <img src="${prevProject.image}" alt="${prevProject.title}" />
-            <div class="detail-nav-overlay">
-              <span>← Previous</span>
-              <h4>${prevProject.title}</h4>
-            </div>
-          </div>
-        ` : `<div class="detail-nav-item empty"></div>`}
+    ${prevProject ? `
+      <div class="detail-nav-item prev" onclick="window.location.href='project-detail.html?id=${prevProject.id}'">
+        <img class="nav-bg" src="${prevProject.image}" alt="" />
+        <img class="nav-thumb" src="${prevProject.image}" alt="${prevProject.title}" />
+        <span class="nav-label">← Prev</span>
+        <div class="detail-nav-overlay">
+          <span>← Previous</span>
+          <h4>${prevProject.title}</h4>
+        </div>
+      </div>
+    ` : `<div class="detail-nav-item empty"></div>`}
 
-        ${nextProject ? `
-          <div class="detail-nav-item next" onclick="window.location.href='project-detail.html?id=${nextProject.id}'">
-            <img src="${nextProject.image}" alt="${nextProject.title}" />
-            <div class="detail-nav-overlay">
-              <span>Next →</span>
-              <h4>${nextProject.title}</h4>
-            </div>
-          </div>
-        ` : `<div class="detail-nav-item empty"></div>`}
+    ${nextProject ? `
+      <div class="detail-nav-item next" onclick="window.location.href='project-detail.html?id=${nextProject.id}'">
+        <img class="nav-bg" src="${nextProject.image}" alt="" />
+        <img class="nav-thumb" src="${nextProject.image}" alt="${nextProject.title}" />
+        <span class="nav-label">Next →</span>
+        <div class="detail-nav-overlay">
+          <span>Next →</span>
+          <h4>${nextProject.title}</h4>
+        </div>
+      </div>
+    ` : `<div class="detail-nav-item empty"></div>`}        
 
       </div>
     ` : ''}

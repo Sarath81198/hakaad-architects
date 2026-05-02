@@ -28,14 +28,15 @@ function hidePreloader() {
 // Scroll listener
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector(".navbar");
+
+  // ❌ Skip scroll effect for white navbar pages
+  if (document.body.classList.contains("nav-white")) return;
+
   if (navbar) {
-    if (window.scrollY > 50) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-    }
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
   }
 });
+
 
 const minDelay = new Promise((resolve) => setTimeout(resolve, 3000));
 
