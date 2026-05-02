@@ -1,0 +1,331 @@
+/* ================================
+   FAQ Page - Haakad Architects
+   ================================ */
+
+/* Page Header */
+.faq-header {
+  padding: 80px 0 50px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.faq-header h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  color: #111111;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.faq-header p {
+  font-size: 1rem;
+  color: #aaaaaa;
+  margin: 0;
+}
+
+/* ================================
+   FAQ Grid
+   ================================ */
+.faq-section {
+  padding: 60px 0 100px;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ================================
+   FAQ Card
+   ================================ */
+.faq-card {
+  background: #ffffff;
+  border: 1px solid hsl(0, 0%, 80%);
+  position: relative;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  transition:
+    all 1s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.5s ease,
+    border-color 0.5s ease,
+    transform 1s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Stagger */
+.faq-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.faq-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.faq-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.faq-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.faq-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.faq-card:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.faq-card:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.faq-card:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.faq-card:nth-child(9) {
+  animation-delay: 0.45s;
+}
+
+/* Hover lift */
+.faq-card:not(.expanded):hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.faq-card.expanded {
+  grid-column: 1 / -1;
+  background: #111111;
+  border-color: #111111;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ================================
+   Background Image
+   ================================ */
+.faq-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  filter: brightness(0.35);
+  transition: opacity 0.5s ease;
+  z-index: 0;
+}
+
+.faq-card:not(.expanded):hover .faq-bg {
+  opacity: 1;
+}
+
+.faq-card.expanded .faq-bg {
+  opacity: 1;
+  filter: brightness(0.2);
+}
+
+/* ================================
+   Card Inner
+   ================================ */
+.faq-card-inner {
+  position: relative;
+  z-index: 1;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+}
+
+/* Expanded inner — stacked */
+.faq-card.expanded .faq-card-inner {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  min-height: unset;
+  padding: 2.5rem 1.75rem;
+}
+
+/* ================================
+   Expand Button
+   ================================ */
+.faq-expand-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 34px;
+  height: 34px;
+  background: none;
+  border: 1px solid #dddddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #111111;
+  font-size: 0.85rem;
+  z-index: 2;
+  transition:
+    all 0.3s ease,
+    transform 0.4s ease;
+}
+
+.faq-card:not(.expanded):hover .faq-expand-btn {
+  transform: rotate(45deg);
+  background: #111111;
+  border-color: #111111;
+  color: #ffffff;
+}
+
+.faq-card.expanded .faq-expand-btn {
+  transform: rotate(90deg);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+/* ================================
+   FAQ Number
+   ================================ */
+.faq-number {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #cccccc;
+  display: block;
+  margin-bottom: 1rem;
+  font-family: var(--font-menu);
+  transition: color 0.3s ease;
+}
+
+.faq-card:not(.expanded):hover .faq-number {
+  color: var(--primary);
+}
+
+.faq-card.expanded .faq-number {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ================================
+   Question
+   ================================ */
+.faq-question {
+  width: 100%;
+}
+
+.faq-question h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111111;
+  line-height: 1.5;
+  margin: 0;
+  padding-right: 2.5rem;
+  transition: color 0.3s ease;
+}
+
+.faq-card:not(.expanded):hover .faq-question h3 {
+  color: #ffffff;
+}
+
+.faq-card.expanded .faq-question h3 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  padding-right: 3rem;
+}
+
+/* ================================
+   Answer
+   ================================ */
+.faq-answer {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-card.expanded .faq-answer {
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.faq-answer p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.8;
+  margin: 0;
+  max-width: 100%;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.faq-card.expanded .faq-answer p {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.4s ease 0.3s,
+    transform 0.4s ease 0.3s;
+  animation: none;
+}
+
+/* ================================
+   Animations
+   ================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   Mobile
+   ================================ */
+@media (max-width: 991px) {
+  .faq-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .faq-header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .faq-card.expanded {
+    grid-column: 1;
+  }
+
+  .faq-card-inner {
+    min-height: 140px;
+    padding: 1.25rem;
+  }
+
+  .faq-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .faq-header {
+    padding: 50px 0 30px;
+  }
+}
