@@ -44,6 +44,7 @@ const componentsLoaded = Promise.all([
   loadComponent("navbar", "components/navbar.html"),
   loadComponent("clients-section", "components/clients.html"),
   loadComponent("footer", "components/footer.html"),
+  loadComponent("testimonials-section", "components/testimonials.html")
 ]);
 
 Promise.all([minDelay, componentsLoaded]).then(() => {
@@ -67,3 +68,17 @@ Promise.all([minDelay, componentsLoaded]).then(() => {
 
   hidePreloader();
 });
+
+const navbar = document.querySelector(".navbar");
+const toggler = document.querySelector(".navbar-toggler");
+const collapse = document.querySelector(".navbar-collapse");
+
+if (toggler && collapse && navbar) {
+  collapse.addEventListener("show.bs.collapse", () => {
+    navbar.classList.add("menu-open");
+  });
+
+  collapse.addEventListener("hide.bs.collapse", () => {
+    navbar.classList.remove("menu-open");
+  });
+}

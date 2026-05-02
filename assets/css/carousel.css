@@ -1,11 +1,10 @@
 /* ================================
-   Carousel - Haakad Architects
-   ================================ */
+   Carousel - Clean & Smooth
+================================ */
 
 .carousel {
   height: 100vh;
-  overflow: hidden;
-  touch-action: pan-x;
+  background: #000; /* 🔥 prevents white flash */
 }
 
 .carousel-inner {
@@ -14,57 +13,58 @@
 
 .carousel-item {
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: block;
-  opacity: 0;
-  transition: opacity 0s;
-}
-
-.carousel-item.active {
-  opacity: 1;
-  position: relative;
+  transition: transform 0.9s ease-in-out; /* smooth slide */
 }
 
 .carousel-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-/* Dash Indicators */
+/* ================================
+   FIX: Remove white gap during slide
+================================ */
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: block;
+}
+
+/* ================================
+   Indicators - PERFECT CENTER
+================================ */
 .carousel-indicators {
   position: absolute;
   bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
   display: flex;
   gap: 8px;
-  margin: 0;
-  padding: 0;
+  justify-content: center;
 }
 
+/* Indicator style */
 .carousel-indicators button {
   width: 30px !important;
   height: 3px !important;
-  border-radius: 0 !important;
   background-color: rgba(255, 255, 255, 0.4) !important;
   border: none !important;
-  padding: 0 !important;
-  opacity: 1 !important;
-  cursor: pointer;
-  transition: all 0.3s ease !important;
+  transition: all 0.3s ease;
+  margin: 0 !important; /* 🔥 removes bootstrap offset issue */
 }
 
 .carousel-indicators button.active {
-  background-color: #ffffff !important;
   width: 50px !important;
+  background-color: #fff !important;
 }
 
-/* Mobile */
+/* ================================
+   Mobile
+================================ */
 @media (max-width: 768px) {
   .carousel {
     height: 60vh;
@@ -72,6 +72,70 @@
 
   .carousel-control-prev,
   .carousel-control-next {
-    display: none !important;
+    display: none;
   }
+}
+
+/* ================================
+   Carousel Controls (Arrows)
+================================ */
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 200px;
+}
+
+/* Icon base (light grey) */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1) brightness(0.7); /* light grey */
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+/* Circle background */
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+}
+
+.carousel-control-prev::before,
+.carousel-control-next::before {
+  content: "";
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08); /* water effect */
+  backdrop-filter: blur(6px); /* 🔥 glass feel */
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
+
+/* Center the circle */
+.carousel-control-prev::before {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.carousel-control-next::before {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Hover effect */
+.carousel-control-prev:hover::before,
+.carousel-control-next:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Hover icon */
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+  opacity: 1;
+  filter: invert(1); /* pure white on hover */
 }
