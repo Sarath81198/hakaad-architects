@@ -12,7 +12,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 
 /* Dark overlay */
@@ -30,7 +30,7 @@
 .parallax-content {
   position: relative;
   z-index: 2;
-  text-align: center;
+  text-align: left;
   color: #ffffff;
   padding: 2rem;
 }

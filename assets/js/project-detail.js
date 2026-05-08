@@ -32,10 +32,34 @@ function initHeroParallax() {
   if (!img) return;
 
   const isMobile = window.innerWidth <= 768;
-  if (isMobile) return; // skip parallax on mobile entirely
+  if (isMobile) return;
 
   window.addEventListener("scroll", () => {
     img.style.transform = `translateY(${window.scrollY * 0.35}px)`;
+  });
+}
+
+// ===============================
+// Floating Nav — stop at footer
+// ===============================
+function initFloatingNav() {
+  const nav = document.querySelector(".detail-nav");
+  if (!nav) return;
+
+  window.addEventListener("scroll", () => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+
+    const footerTop = footer.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    const bottomOffset = 30;
+
+    if (footerTop < windowHeight) {
+      const overlap = windowHeight - footerTop;
+      nav.style.bottom = `${overlap + bottomOffset}px`;
+    } else {
+      nav.style.bottom = `${bottomOffset}px`;
+    }
   });
 }
 
@@ -45,7 +69,6 @@ function initHeroParallax() {
 function renderProject() {
   const container = document.getElementById("project-detail");
 
-  // Get project from URL
   const params = new URLSearchParams(window.location.search);
   const projectId = parseInt(params.get("id"));
 
@@ -61,17 +84,11 @@ function renderProject() {
     return;
   }
 
-  // Same category prev/next
   const sameCategory = projects.filter((p) => p.category === project.category);
   const currentIndex = sameCategory.findIndex((p) => p.id === projectId);
   const prevProject = sameCategory[currentIndex - 1] || null;
   const nextProject = sameCategory[currentIndex + 1] || null;
   const showNav = sameCategory.length > 1;
-
-  console.log("sameCategory length:", sameCategory.length);
-  console.log("showNav:", showNav);
-  console.log("prevProject:", prevProject?.title);
-  console.log("nextProject:", nextProject?.title);
 
   container.innerHTML = `
 
@@ -128,39 +145,36 @@ function renderProject() {
     ${showNav ? `
       <div class="detail-nav">
 
-    ${prevProject ? `
-      <div class="detail-nav-item prev" onclick="window.location.href='project-detail.html?id=${prevProject.id}'">
-        <img class="nav-bg" src="${prevProject.image}" alt="" />
-        <img class="nav-thumb" src="${prevProject.image}" alt="${prevProject.title}" />
-        <span class="nav-label">← Prev</span>
-        <div class="detail-nav-overlay">
-          <span>← Previous</span>
-          <h4>${prevProject.title}</h4>
-        </div>
-      </div>
-    ` : `<div class="detail-nav-item empty"></div>`}
+        ${prevProject ? `
+          <div class="detail-nav-item prev" onclick="window.location.href='project-detail.html?id=${prevProject.id}'">
+            <img class="nav-bg" src="${prevProject.image}" alt="" />
+            <img class="nav-thumb" src="${prevProject.image}" alt="${prevProject.title}" />
+            <span class="nav-label">← Prev</span>
+            <div class="detail-nav-overlay">
+              <span>← Previous</span>
+              <h4>${prevProject.title}</h4>
+            </div>
+          </div>
+        ` : `<div class="detail-nav-item empty"></div>`}
 
-    ${nextProject ? `
-      <div class="detail-nav-item next" onclick="window.location.href='project-detail.html?id=${nextProject.id}'">
-        <img class="nav-bg" src="${nextProject.image}" alt="" />
-        <img class="nav-thumb" src="${nextProject.image}" alt="${nextProject.title}" />
-        <span class="nav-label">Next →</span>
-        <div class="detail-nav-overlay">
-          <span>Next →</span>
-          <h4>${nextProject.title}</h4>
-        </div>
-      </div>
-    ` : `<div class="detail-nav-item empty"></div>`}        
+        ${nextProject ? `
+          <div class="detail-nav-item next" onclick="window.location.href='project-detail.html?id=${nextProject.id}'">
+            <img class="nav-bg" src="${nextProject.image}" alt="" />
+            <img class="nav-thumb" src="${nextProject.image}" alt="${nextProject.title}" />
+            <span class="nav-label">Next →</span>
+            <div class="detail-nav-overlay">
+              <span>Next →</span>
+              <h4>${nextProject.title}</h4>
+            </div>
+          </div>
+        ` : `<div class="detail-nav-item empty"></div>`}
 
       </div>
     ` : ''}
   `;
 
   initHeroParallax();
-
-    console.log("container HTML length:", container.innerHTML.length);
-  console.log("showNav:", showNav);
-  console.log("detail-nav exists:", document.querySelector(".detail-nav"));
+  initFloatingNav();
 }
 
 // ===============================
