@@ -70,20 +70,23 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .client-logo img {
   max-width: 100%;
-  max-height: 60px;
+  max-height: 80px;
   object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.6;
-  transition: all 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .client-logo:hover img {
   filter: grayscale(0%);
   opacity: 1;
+  transform: scale(1.1);
 }
 
 /* Mobile */
